@@ -83,7 +83,7 @@ public class ItemListActivity extends AppCompatActivity {
             {
                 recyclerFix();
             }
-        }, 2000);
+        }, 4000);
 
     }
     private void testAllThatJazz() {

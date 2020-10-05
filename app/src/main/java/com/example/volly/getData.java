@@ -75,10 +75,10 @@ public class getData
 
                             if(jsonArray.length() > 0 )
                             {
-                                List<GameCompany> company = Arrays.asList(gson.fromJson(jsonArray.toString(), GameCompany[].class));
+                                List<GameCompany> companies = Arrays.asList(gson.fromJson(jsonArray.toString(), GameCompany[].class));
 
-                                for(GameCompany companies: company)
-                                    addToList(companies);
+                                for(GameCompany company: companies)
+                                    addToList(company);
                             }
 
                         } catch (JSONException e) {
