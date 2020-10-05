@@ -50,6 +50,7 @@ public class DummyContent {
         return builder.toString();
     }
 
+
     /**
      * A dummy item representing a piece of content.
      */
