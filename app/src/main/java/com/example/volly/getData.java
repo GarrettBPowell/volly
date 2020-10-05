@@ -45,17 +45,17 @@ import java.util.List;
 public class getData
 {
     private RequestQueue mQueue;
-    public static HashMap<String, GameCompany> ITEM_MAP;
-    public static List<GameCompany> COMPANIES;
+    public static HashMap<String, GameCompany> ITEM_MAP = null;
+    public static List<GameCompany> COMPANIES = null;
 
     public void getDataFromURL(Context context)
     {
         if(COMPANIES != null)
             return;
+
         mQueue = Volley.newRequestQueue(context);
 
         parseJson(context);
-
         COMPANIES = new ArrayList<>();
         ITEM_MAP = new HashMap<>();
     }
@@ -72,7 +72,7 @@ public class getData
                         try {
                             JSONArray jsonArray = response.getJSONArray("gameCompanies");
 
-                            if(jsonArray.length() > 0 )
+                            if(jsonArray.length() > 0)
                             {
                                 List<GameCompany> companies = Arrays.asList(gson.fromJson(jsonArray.toString(), GameCompany[].class));
 

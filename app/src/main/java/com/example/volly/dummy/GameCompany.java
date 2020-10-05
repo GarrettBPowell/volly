@@ -18,7 +18,7 @@ public class GameCompany {
         public  String gameCompanyName;
         @SerializedName("year")
         public  String gameCompanyYearFounded;
-        @SerializedName("console")
+        @SerializedName("recentConsole")
         public  String gameCompanyLatestConsole;
 
         public GameCompany(String name, String year, String console)

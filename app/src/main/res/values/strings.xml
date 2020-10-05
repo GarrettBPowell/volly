@@ -2,4 +2,5 @@
     <string name="app_name">volly</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="companyURL">https://api.jsonbin.io/b/5f726a107243cd7e8245d58b</string>
+    <string name="myURL">https://api.jsonbin.io/b/5f7ba1ac302a837e95753098</string>
 </resources>

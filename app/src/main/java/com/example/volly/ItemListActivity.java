@@ -46,20 +46,19 @@ public class ItemListActivity extends AppCompatActivity {
     private boolean mTwoPane;
     private Toolbar toolbarz;
     private static getData grabbyData = new getData();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
-        toolbarz = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbarz);
-        toolbarz.setTitle(getTitle());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
         grabbyData.getDataFromURL(this);
-/*
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +67,7 @@ public class ItemListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-*/
+
         if (findViewById(R.id.item_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
