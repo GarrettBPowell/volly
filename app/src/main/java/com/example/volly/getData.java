@@ -99,5 +99,4 @@ public class getData
         COMPANIES.add(someCompany);
         ITEM_MAP.put(someCompany.getName(), someCompany);
     }
-
 }

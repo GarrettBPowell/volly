@@ -19,6 +19,7 @@ import com.example.volly.dummy.GameCompany;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,6 @@ public class ItemListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-
         grabbyData.getDataFromURL(this);
 /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -77,9 +77,14 @@ public class ItemListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
 
-        View recyclerView = findViewById(R.id.item_list);
-        assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
+        new Handler().postDelayed(new Runnable()
+        {
+            public void run ()
+            {
+                recyclerFix();
+            }
+        }, 2000);
+
     }
     private void testAllThatJazz() {
         String url = "https://api.jsonbin.io/b/5f726a107243cd7e8245d58b";  // THAT should be in a strings.xml file!
@@ -108,6 +113,12 @@ public class ItemListActivity extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
+    public void recyclerFix()
+    {
+        RecyclerView recyclerView = findViewById(R.id.item_list);
+        assert recyclerView != null;
+        setupRecyclerView((RecyclerView) recyclerView);
+    }
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, grabbyData.COMPANIES, mTwoPane));
     }
