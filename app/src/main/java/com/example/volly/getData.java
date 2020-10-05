@@ -45,9 +45,8 @@ import java.util.List;
 public class getData
 {
     private RequestQueue mQueue;
-    public static HashMap<String, GameCompany> ITEM_MAP = null;
-    public static List<GameCompany> COMPANIES = null;
-
+    public static HashMap<String, GameCompany> ITEM_MAP;
+    public static List<GameCompany> COMPANIES;
 
     public void getDataFromURL(Context context)
     {
