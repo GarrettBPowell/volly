@@ -20,6 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,6 @@ public class ItemListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
-    private Toolbar toolbarz;
     private static getData grabbyData = new getData();
 
     @Override
@@ -58,6 +58,7 @@ public class ItemListActivity extends AppCompatActivity {
         toolbar.setTitle(getTitle());
 
         grabbyData.getDataFromURL(this);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +87,7 @@ public class ItemListActivity extends AppCompatActivity {
         }, 10000);
 
     }
-    private void testAllThatJazz() {
+   /* private void testAllThatJazz() {
         String url = "https://api.jsonbin.io/b/5f726a107243cd7e8245d58b";  // THAT should be in a strings.xml file!
 
         // Instantiate the RequestQueue.
@@ -111,7 +112,7 @@ public class ItemListActivity extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
-    }
+    }*/
 
     public void recyclerFix()
     {

@@ -54,10 +54,11 @@ public class getData
             return;
 
         mQueue = Volley.newRequestQueue(context);
-        COMPANIES = new ArrayList<>();
-        ITEM_MAP = new HashMap<>();
+
         parseJson(context);
 
+        COMPANIES = new ArrayList<>();
+        ITEM_MAP = new HashMap<>();
     }
 
     private void parseJson(final Context context)
@@ -80,7 +81,6 @@ public class getData
                                 for(GameCompany company: companies)
                                     addToList(company);
                             }
-
                         }
                         catch (JSONException e) {
                             e.printStackTrace();
@@ -95,7 +95,7 @@ public class getData
         mQueue.add(request);
     }
 
-    private void addToList(GameCompany someCompany)
+    public void addToList(GameCompany someCompany)
     {
         COMPANIES.add(someCompany);
         ITEM_MAP.put(someCompany.getName(), someCompany);
