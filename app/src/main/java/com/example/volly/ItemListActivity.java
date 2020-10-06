@@ -68,7 +68,8 @@ public class ItemListActivity extends AppCompatActivity {
             }
         });
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.item_detail_container) != null)
+        {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
@@ -82,7 +83,7 @@ public class ItemListActivity extends AppCompatActivity {
             {
                 recyclerFix();
             }
-        }, 4000);
+        }, 10000);
 
     }
     private void testAllThatJazz() {
@@ -118,7 +119,8 @@ public class ItemListActivity extends AppCompatActivity {
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
     }
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView)
+    {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, grabbyData.COMPANIES, mTwoPane));
     }
 
@@ -132,7 +134,8 @@ public class ItemListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 GameCompany item = (GameCompany) view.getTag();
-                if (mTwoPane) {
+                if (mTwoPane)
+                {
                     Bundle arguments = new Bundle();
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.gameCompanyName);
                     ItemDetailFragment fragment = new ItemDetailFragment();
@@ -140,7 +143,9 @@ public class ItemListActivity extends AppCompatActivity {
                     mParentActivity.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.item_detail_container, fragment)
                             .commit();
-                } else {
+                }
+                else
+                {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ItemDetailActivity.class);
                     intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, item.gameCompanyName);
@@ -158,10 +163,9 @@ public class ItemListActivity extends AppCompatActivity {
             mTwoPane = twoPane;
         }
 
-
-
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+        {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_list_content, parent, false);
             return new ViewHolder(view);
@@ -170,7 +174,7 @@ public class ItemListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mIdView.setText(mValues.get(position).gameCompanyName);
-            holder.mContentView.setText(mValues.get(position).gameCompanyYearFounded);
+            holder.mContentView.setText(String.valueOf(mValues.get(position).gameCompanyYearFounded));
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -181,11 +185,13 @@ public class ItemListActivity extends AppCompatActivity {
             return mValues.size();
         }
 
-        class ViewHolder extends RecyclerView.ViewHolder {
+        class ViewHolder extends RecyclerView.ViewHolder
+        {
             final TextView mIdView;
             final TextView mContentView;
 
-            ViewHolder(View view) {
+            ViewHolder(View view)
+            {
                 super(view);
                 mIdView = (TextView) view.findViewById(R.id.id_text);
                 mContentView = (TextView) view.findViewById(R.id.content);

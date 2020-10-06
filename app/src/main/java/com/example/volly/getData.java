@@ -54,10 +54,10 @@ public class getData
             return;
 
         mQueue = Volley.newRequestQueue(context);
-
-        parseJson(context);
         COMPANIES = new ArrayList<>();
         ITEM_MAP = new HashMap<>();
+        parseJson(context);
+
     }
 
     private void parseJson(final Context context)
@@ -69,7 +69,8 @@ public class getData
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try {
+                        try
+                        {
                             JSONArray jsonArray = response.getJSONArray("gameCompanies");
 
                             if(jsonArray.length() > 0)
@@ -80,7 +81,8 @@ public class getData
                                     addToList(company);
                             }
 
-                        } catch (JSONException e) {
+                        }
+                        catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
