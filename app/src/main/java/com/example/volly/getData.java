@@ -53,12 +53,13 @@ public class getData
         if(COMPANIES != null)
             return;
 
+        COMPANIES = new ArrayList<>();
+        ITEM_MAP = new HashMap<>();
+
         mQueue = Volley.newRequestQueue(context);
 
         parseJson(context);
 
-        COMPANIES = new ArrayList<>();
-        ITEM_MAP = new HashMap<>();
     }
 
     private void parseJson(final Context context)

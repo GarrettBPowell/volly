@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.volly.dummy.DummyContent;
+
 
 import java.util.List;
 
@@ -80,11 +80,12 @@ public class ItemListActivity extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable()
         {
+            @Override
             public void run ()
             {
                 recyclerFix();
             }
-        }, 10000);
+        }, 2000);
 
     }
    /* private void testAllThatJazz() {
@@ -122,7 +123,7 @@ public class ItemListActivity extends AppCompatActivity {
     }
     private void setupRecyclerView(@NonNull RecyclerView recyclerView)
     {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, grabbyData.COMPANIES, mTwoPane));
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, grabbyData.COMPANIES, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
