@@ -117,7 +117,7 @@ public class ItemListActivity extends AppCompatActivity {
 
     public void recyclerFix()
     {
-        RecyclerView recyclerView = findViewById(R.id.item_list);
+        RecyclerView recyclerView = findViewById(R.id.include);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
     }
@@ -132,7 +132,7 @@ public class ItemListActivity extends AppCompatActivity {
         private final ItemListActivity mParentActivity;
         private final List<GameCompany> mValues;
         private final boolean mTwoPane;
-        
+
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
