@@ -21,8 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.volly.dummy.DummyContent;
-import com.example.volly.dummy.GameCompany;
+import com.example.volly.dummy.myThing;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -45,24 +44,24 @@ import java.util.List;
 public class getData
 {
     private RequestQueue mQueue;
-    public static HashMap<String, GameCompany> ITEM_MAP = null;
-    public static List<GameCompany> COMPANIES = null;
+    public static HashMap<String, myThing> ITEM_MAP = null;
+    public static List<myThing> PEOPLE = null;
 
     public void getDataFromURL(Context context)
     {
-        if(COMPANIES != null)
+        if(PEOPLE != null)
             return;
 
         mQueue = Volley.newRequestQueue(context);
 
         parseJson(context);
-        COMPANIES = new ArrayList<>();
+        PEOPLE = new ArrayList<>();
         ITEM_MAP = new HashMap<>();
     }
 
     private void parseJson(final Context context)
     {
-        String url = context.getString(R.string.companyURL);
+        String url = context.getString(R.string.myURL);
         final Gson gson = new Gson();
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -75,9 +74,9 @@ public class getData
 
                             if(jsonArray.length() > 0)
                             {
-                                List<GameCompany> companies = Arrays.asList(gson.fromJson(jsonArray.toString(), GameCompany[].class));
+                                List<myThing> companies = Arrays.asList(gson.fromJson(jsonArray.toString(), myThing[].class));
 
-                                for(GameCompany company: companies)
+                                for(myThing company: companies)
                                     addToList(company);
                             }
                         }
@@ -94,9 +93,9 @@ public class getData
         mQueue.add(request);
     }
 
-    public void addToList(GameCompany someCompany)
+    public void addToList(myThing someCompany)
     {
-        COMPANIES.add(someCompany);
+        PEOPLE.add(someCompany);
         ITEM_MAP.put(someCompany.getName(), someCompany);
     }
 }

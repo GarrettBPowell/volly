@@ -3,7 +3,7 @@ package com.example.volly;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.example.volly.dummy.GameCompany;
+import com.example.volly.dummy.myThing;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import androidx.fragment.app.Fragment;
@@ -12,8 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.example.volly.dummy.DummyContent;
 
 /**
  * A fragment representing a single Item detail screen.
@@ -31,7 +29,7 @@ public class ItemDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private GameCompany mItem;
+    private myThing mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -55,7 +53,7 @@ public class ItemDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.gameCompanyName);
+                appBarLayout.setTitle(mItem.name);
             }
         }
     }
@@ -68,7 +66,7 @@ public class ItemDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null)
         {
-            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.gameCompanyLatestConsole);
+            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.color);
         }
 
         return rootView;

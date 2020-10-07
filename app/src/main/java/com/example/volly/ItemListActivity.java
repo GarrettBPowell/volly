@@ -15,7 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.volly.dummy.GameCompany;
+import com.example.volly.dummy.myThing;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -123,24 +123,24 @@ public class ItemListActivity extends AppCompatActivity {
     }
     private void setupRecyclerView(@NonNull RecyclerView recyclerView)
     {
-            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, grabbyData.COMPANIES, mTwoPane));
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, grabbyData.PEOPLE, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>
     {
         private final ItemListActivity mParentActivity;
-        private final List<GameCompany> mValues;
+        private final List<myThing> mValues;
         private final boolean mTwoPane;
 
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GameCompany item = (GameCompany) view.getTag();
+                myThing item = (myThing) view.getTag();
                 if (mTwoPane)
                 {
                     Bundle arguments = new Bundle();
-                    arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.gameCompanyName);
+                    arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.name);
                     ItemDetailFragment fragment = new ItemDetailFragment();
                     fragment.setArguments(arguments);
                     mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -151,7 +151,7 @@ public class ItemListActivity extends AppCompatActivity {
                 {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ItemDetailActivity.class);
-                    intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, item.gameCompanyName);
+                    intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, item.name);
 
                     context.startActivity(intent);
                 }
@@ -159,7 +159,7 @@ public class ItemListActivity extends AppCompatActivity {
         };
 
         SimpleItemRecyclerViewAdapter(ItemListActivity parent,
-                                      List<GameCompany> items,
+                                      List<myThing> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
@@ -176,8 +176,8 @@ public class ItemListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).gameCompanyName);
-            holder.mContentView.setText(String.valueOf(mValues.get(position).gameCompanyYearFounded));
+            holder.mIdView.setText(mValues.get(position).name);
+            holder.mContentView.setText(String.valueOf(mValues.get(position).year));
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
